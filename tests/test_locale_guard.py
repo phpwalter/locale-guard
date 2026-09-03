@@ -151,3 +151,12 @@ def test_markers_require_exact_pair() -> None:
     with pytest.raises(MarkerError):
         replace_marked_section("nothing", "START", "END", "body")
     assert replace_marked_section("A START old END Z", "START", "END", "new") == "A START\nnew\nEND Z"
+
+
+def test_double_star_include_matches_canonical_root_files(tmp_path: Path) -> None:
+    config_path = make_project(tmp_path)
+    (tmp_path / "docs/en/root.md").write_text("# Root\n", encoding="utf-8")
+    config = load_config(config_path)
+    report = calculate_coverage(config)
+    assert report.canonical_total == 3
+    assert any(doc.relative_path.as_posix() == "root.md" for doc in report.documents)
