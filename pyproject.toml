@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "locale-guard"
+version = "0.1.0"
+description = "Deterministic localization governance for documentation repositories"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "Walter Torres"}]
+dependencies = ["PyYAML>=6.0,<7"]
+keywords = ["localization", "i18n", "documentation", "governance", "ci"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Documentation",
+  "Topic :: Software Development :: Quality Assurance",
+]
+
+[project.scripts]
+locale-guard = "locale_guard.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["locale_guard*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["."]
