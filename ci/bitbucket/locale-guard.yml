@@ -1,0 +1,10 @@
+image: python:3.12
+
+pipelines:
+  default:
+    - step:
+        name: LocaleGuard
+        script:
+          - git submodule update --init --recursive
+          - python -m pip install 'PyYAML>=6.0,<7'
+          - python -B tools/locale-guard/locale_guard.py check
