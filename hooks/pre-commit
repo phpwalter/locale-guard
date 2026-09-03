@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+
+python -B tools/locale-guard/locale_guard.py update
+git add README.md docs/_generated docs/en docs/i18n 2>/dev/null || true
+python -B tools/locale-guard/locale_guard.py check
