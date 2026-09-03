@@ -13,7 +13,11 @@ class ScanError(RuntimeError):
 def _matches(path: Path, patterns: tuple[str, ...]) -> bool:
     value = path.as_posix()
     name = path.name
-    return any(fnmatch.fnmatch(value, pattern) or fnmatch.fnmatch(name, pattern) for pattern in patterns)
+    for pattern in patterns:
+        candidates = (pattern, pattern[3:]) if pattern.startswith("**/") else (pattern,)
+        if any(fnmatch.fnmatch(value, candidate) or fnmatch.fnmatch(name, candidate) for candidate in candidates):
+            return True
+    return False
 
 
 def discover_documents(config: LocaleGuardConfig) -> tuple[DocumentStatus, ...]:
