@@ -23,7 +23,6 @@ def render_status_report(config: LocaleGuardConfig, report: CoverageReport) -> s
         )
 
     for code, coverage in report.languages.items():
-        missing = [doc.relative_path.as_posix() for doc in report.documents if doc.translations.get(code) is None]
         lines.extend([
             "",
             f"## {coverage.name}",
@@ -31,12 +30,12 @@ def render_status_report(config: LocaleGuardConfig, report: CoverageReport) -> s
             f"Coverage: **{coverage.present}/{coverage.total} ({coverage.percentage:.1f}%)**",
             "",
         ])
-        if not missing:
+        if coverage.missing == 0:
             lines.append("All canonical documents have localized counterparts.")
         else:
-            lines.append(f"Missing {len(missing)} document(s):")
+            lines.append(f"Missing {coverage.missing} document(s).")
             lines.append("")
-            lines.extend(f"- `{path}`" for path in missing)
+            lines.append(f"Run `locale-guard missing {code}` for the current missing-document list.")
 
     lines.append("")
     return "\n".join(lines)
