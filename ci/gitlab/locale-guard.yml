@@ -1,0 +1,7 @@
+locale_guard:
+  image: python:3.12
+  before_script:
+    - git submodule update --init --recursive
+    - python -m pip install 'PyYAML>=6.0,<7'
+  script:
+    - python -B tools/locale-guard/locale_guard.py check
