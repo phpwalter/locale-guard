@@ -1,0 +1,19 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- checkout: self
+  submodules: recursive
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.12'
+
+- script: python -m pip install 'PyYAML>=6.0,<7'
+  displayName: Install LocaleGuard dependency
+
+- script: python -B tools/locale-guard/locale_guard.py check
+  displayName: Validate localization governance
