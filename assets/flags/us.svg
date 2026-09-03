@@ -1,1 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 10"><path fill="#fff" d="M0 0h19v10H0z"/><g fill="#b22234"><path d="M0 0h19v.77H0zM0 1.54h19v.77H0zM0 3.08h19v.77H0zM0 4.62h19v.77H0zM0 6.16h19v.77H0zM0 7.7h19v.77H0zM0 9.23h19V10H0z"/></g><path fill="#3c3b6e" d="M0 0h7.6v5.39H0z"/><g fill="#fff" font-size=".7" font-family="sans-serif"><text x=".35" y=".75">★ ★ ★ ★ ★</text><text x=".75" y="1.55">★ ★ ★ ★</text><text x=".35" y="2.35">★ ★ ★ ★ ★</text><text x=".75" y="3.15">★ ★ ★ ★</text><text x=".35" y="3.95">★ ★ ★ ★ ★</text><text x=".75" y="4.75">★ ★ ★ ★</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 7410 3900">
+<rect width="7410" height="3900" fill="#b22234"/>
+<path d="M0,450H7410m0,600H0m0,600H7410m0,600H0m0,600H7410m0,600H0" stroke="#fff" stroke-width="300"/>
+<rect width="2964" height="2100" fill="#3c3b6e"/>
+<g fill="#fff">
+<g id="s18">
+<g id="s9">
+<g id="s5">
+<g id="s4">
+<path id="s" d="M247,90 317.534230,307.082039 132.873218,172.917961H361.126782L176.465770,307.082039z"/>
+<use xlink:href="#s" y="420"/>
+<use xlink:href="#s" y="840"/>
+<use xlink:href="#s" y="1260"/>
+</g>
+<use xlink:href="#s" y="1680"/>
+</g>
+<use xlink:href="#s4" x="247" y="210"/>
+</g>
+<use xlink:href="#s9" x="494"/>
+</g>
+<use xlink:href="#s18" x="988"/>
+<use xlink:href="#s9" x="1976"/>
+<use xlink:href="#s5" x="2470"/>
+</g>
+</svg>
