@@ -1,0 +1,48 @@
+version: 1
+
+canonical:
+  code: en
+  name: English
+  country: US
+  root: docs/en
+
+translations:
+  root: docs/i18n
+  languages:
+    es:
+      name: Español
+      country: ES
+    de:
+      name: Deutsch
+      country: DE
+    ja:
+      name: 日本語
+      country: JP
+
+files:
+  include:
+    - "**/*.md"
+  exclude:
+    - "_generated/**"
+    - "_templates/**"
+
+output:
+  status_report: docs/_generated/localization-status.md
+  flag_directory: docs/_generated/assets/flags
+
+readme:
+  enabled: true
+  path: README.md
+  section:
+    start_marker: "<!-- locale-guard:summary:start -->"
+    end_marker: "<!-- locale-guard:summary:end -->"
+  display:
+    flags: true
+    counts: true
+    percentages: true
+    progress_bar: true
+
+navigation:
+  enabled: true
+  start_marker: "<!-- locale-guard:language-bar:start -->"
+  end_marker: "<!-- locale-guard:language-bar:end -->"
